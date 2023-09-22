@@ -8,8 +8,13 @@ const messages = [
         added: new Date()
     },
     {
-        text: "If you don't fight, you can't win!",
-        user: "Eren Yeager",
+        text: "ZA WARUDOOO",
+        user: "DIO",
+        added: new Date()
+    },
+    {
+        text: "still REVERBEVATE",
+        user: "Ronnie Radke",
         added: new Date()
     }
 ]
@@ -19,13 +24,16 @@ router.get('/', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
+    const message = req.body.message
+    const name = req.body.name
     const isValid = true
+
     if (isValid) {
-        messages.push({ text: req.body.message, user: req.body.name, added: new Date() })
+        messages.push({ text: message, user: name, added: new Date() })
         res.redirect('/')
     } else {
         console.log('Error')
-        res.render('new', { user: req.body.name })
+        res.render('form', { user: req.body.name })
     }
 })
 
