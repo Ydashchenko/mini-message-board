@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <a href="/new">
+        <button class="add-message-button">Add Message</button>
+    </a>
+    <ul class="message-list">
+        <% for (let message of messages) { %>
+            <li class="message-container">
+                <div class="message-header">
+                    <strong><%= message.user %></strong>
+                    <em><%= message.added %></em>
+                </div>
+                <p class="message-text">
+                    <%= message.text %>
+                </p>
+            </li>
+        <% } %>
+    </ul>
+    
+
+</body>
+</html>
